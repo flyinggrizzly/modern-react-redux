@@ -1,3 +1,6 @@
 [submodule "ReduxCasts"]
 	path = ReduxCasts
 	url = https://github.com/StephenGrider/ReduxCasts.git
+[submodule "ReduxSimpleStarter"]
+	path = ReduxSimpleStarter
+	url = https://github.com/StephenGrider/ReduxSimpleStarter.git
