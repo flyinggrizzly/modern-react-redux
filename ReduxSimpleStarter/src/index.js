@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').load();
 
 import React from 'react';
 import ReactDOM from 'react-dom';
