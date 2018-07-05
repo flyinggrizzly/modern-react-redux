@@ -1,5 +1,6 @@
 module.exports = {
   entry: ['./src/index.js'],
+  node: { fs: 'empty' },
   output: {
     path: __dirname,
     publicPath: '/',
