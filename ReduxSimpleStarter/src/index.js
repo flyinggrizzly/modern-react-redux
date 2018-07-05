@@ -26,7 +26,13 @@ const API_KEY = process.env.API_KEY;
  *                       { 'class' : 'foo', 'name' : 'bar', 'data-whatever' : 'cher' },
  *                       'Hi!');
  */
-const App = () => { return <div>Hi!</div>; }
+const App = () => {
+  return (
+    <div>
+      <SearchBar />
+    </div>
+  );
+}
 
 /*****
  * Take this component's generated HTML and put it in the DOM.
