@@ -1,14 +1,22 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 /**
- * Functional Component
+ * Class-based component implementation.
  *
- * - it is a function:
- *   input goes in,
- *   JSX comes out
+ * A class-based component can introspect
+ * itself, and report internal changes to
+ * the rest of the application. This is useful
+ * for, say, a search box that needs to report
+ * user input.
  */
-const SearchBar = () => {
-  return <input />;
-};
+class SearchBar extends Component {
+  /**
+   * All React components must define a .render() method
+   * which returns JSX
+   */
+  render() {
+    return <input />;
+  }
+}
 
 export default SearchBar;
