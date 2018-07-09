@@ -15,14 +15,14 @@ class SearchBar extends Component {
    * which returns JSX
    */
   render() {
-    return <input onChange= { this.onInputChange } />;
+    return <input onChange={ this.onInputChange } />;
   }
 
   /**
    * Event handler for input change
    */
-  onInputChange() {
-
+  onInputChange(event) {
+    console.log(event.target.value);
   }
 }
 
