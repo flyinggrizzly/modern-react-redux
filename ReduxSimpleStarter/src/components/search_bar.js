@@ -15,7 +15,14 @@ class SearchBar extends Component {
    * which returns JSX
    */
   render() {
-    return <input />;
+    return <input onChange= { this.onInputChange } />;
+  }
+
+  /**
+   * Event handler for input change
+   */
+  onInputChange() {
+
   }
 }
 
