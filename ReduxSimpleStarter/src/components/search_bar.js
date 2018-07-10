@@ -11,18 +11,29 @@ import React, { Component } from 'react';
  */
 class SearchBar extends Component {
   /**
+   * Define constructor method
+   *
+   * If a component is going to have statefulness, the
+   * state object (a JS object that is an attribute of
+   * the React component) needs to be initialized with
+   * the component
+   */
+  constructor(props) {
+    super(props);
+
+    this.state = { searchTerm: '' };
+  }
+
+  /**
    * All React components must define a .render() method
    * which returns JSX
    */
   render() {
-    return <input onChange={ this.onInputChange } />;
-  }
-
-  /**
-   * Event handler for input change
-   */
-  onInputChange(event) {
-    console.log(event.target.value);
+    return (
+      <div>
+        <input onChange={ event => this.setState({ searchTerm: event.target.value }) } />
+      </div>
+    );
   }
 }
 
