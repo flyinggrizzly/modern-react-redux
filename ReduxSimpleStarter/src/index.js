@@ -2,10 +2,17 @@ require('dotenv').load();
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import YTSearch from 'youtube-api-search';
 
 import SearchBar from './components/search_bar';
 
-const API_KEY = process.env.API_KEY;
+const API_KEY = 'AIzaSyBl9wh-Nrgxseod8PfjVefKf-dEgDv4BXk'
+/**
+ * Educated guess at YTSearch API and test it
+ */
+YTSearch({ key: API_KEY, term: 'crazy cat' }, function(data) {
+  console.table(data);
+})
 
 /*****
  * Create a new component class that produces some HTML.
