@@ -28,10 +28,31 @@ class SearchBar extends Component {
    * All React components must define a .render() method
    * which returns JSX
    */
+  /**
+   * Setting the value of the component equal to the state converts it to a
+   * 'controlled component'.
+   *
+   * This overrides and effectively reimplements default HTML behavior: when
+   * a user enters data to the input element, the React component is not allowing
+   * that to change the input's value attribute--that is hard-set to be the
+   * component's state.
+   *
+   * Instead, data entry triggers the onChange event handler, which updates the
+   * component's state and triggers a rerender. The render looks up the state
+   * for the component and renders that in as the value of the component.
+   *
+   * This effectively decouples data entry and presentation, which opens up a lot
+   * of options, like real-time validation, and more certainty when referencing
+   * values.
+   *
+   * Also, you can screw with people. And say, rot13 their input.
+   */
   render() {
     return (
       <div>
-        <input onChange={ event => this.setState({ searchTerm: event.target.value }) } />
+        <input
+          value={this.state.searchTerm}
+          onChange={ event => this.setState({ searchTerm: event.target.value }) } />
       </div>
     );
   }
