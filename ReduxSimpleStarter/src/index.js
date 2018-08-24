@@ -28,9 +28,13 @@ class App extends Component {
   }
 
   render() {
+    // Use lodash.debounce to throttle videoSearch calls to a maximum of once
+    // every 300ms, to reduce app lag.
+    const videoSearch = _.debounce((term) => { this.videoSearch(term) }, 300)
+
     return (
       <div>
-        <SearchBar onSearchTermChange={term => this.videoSearch(term)}/>
+        <SearchBar onSearchTermChange={ videoSearch }/>
 
         <VideoDetail video={this.state.selectedVideo} />
 
