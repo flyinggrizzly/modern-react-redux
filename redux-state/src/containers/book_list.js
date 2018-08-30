@@ -5,7 +5,7 @@ class BookList extends Component {
   render() {
     return (
       <ul className="list-group col-smr-4">
-        { this.renderList }
+        { this.renderList() }
       </ul>
     )
   }
