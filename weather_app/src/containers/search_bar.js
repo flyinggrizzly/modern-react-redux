@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-export default class SearchBar extends Component {
+import { fetchWeather } from '../actions/index';
+
+class SearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = { term: '' };
 
     // Bind context of onInputChange to this object
     this.onInputChange = this.onInputChange.bind(this);
+    this.onFormSubmit = this.onFormSubmit.bind(this);
   }
 
   render () {
@@ -34,5 +39,17 @@ export default class SearchBar extends Component {
 
   onFormSubmit(event) {
     event.preventDefault();
+
+    // Fetch weather data
+    this.props.fetchWeather(this.state.term);
+    // Clear search input
+    this.setState({ term: '' });
   }
 }
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchWeather }, dispatch);
+}
+
+// Only mapping outbound state updates. Null is the first argument because we don't need to consume redux state.
+export default connect(null, mapDispatchToProps)(SearchBar);
