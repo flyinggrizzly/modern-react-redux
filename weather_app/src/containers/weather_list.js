@@ -14,8 +14,17 @@ class WeatherList extends Component {
           </tr>
         </thead>
         <tbody>
+          { this.props.weather.map(this.renderWeather) }
         </tbody>
       </table>
+    )
+  }
+
+  renderWeather(cityData) {
+    return(
+      <tr>
+        <td>{ cityData.city.name }</td>
+      </tr>
     )
   }
 }
