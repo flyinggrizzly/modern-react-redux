@@ -20,6 +20,11 @@ export default class WeatherList extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return { weather: state.weather };
+// Don't forget that when you have an object with a key, and that's all you want, you can
+// dereference that value in the argument definition:
+// function myFunction(state) { weather = state.weather; }
+// is equivalent to
+// function myFunction({ weather }) { //do more stuff }
+function mapStateToProps({ weather }) {
+  return { weather };
 }
