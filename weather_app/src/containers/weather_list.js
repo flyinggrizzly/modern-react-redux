@@ -9,9 +9,9 @@ class WeatherList extends Component {
         <thead>
           <tr>
             <th>City</th>
-            <th>Temperature</th>
-            <th>Pressure</th>
-            <th>Humidity</th>
+            <th>Temperature, in Kelvin</th>
+            <th>Pressure, in hPa</th>
+            <th>Humidity, as percentage</th>
           </tr>
         </thead>
         <tbody>
@@ -32,9 +32,9 @@ class WeatherList extends Component {
     return(
       <tr key={ name + key_timestamp }>
         <td>{ name }</td>
-        <td><Chart data={ temperatures } color={ 'orange' } /></td>
-        <td><Chart data={ pressures } color={ 'green' } /></td>
-        <td><Chart data={ humidities } color={ 'black' } /></td>
+        <td><Chart data={ temperatures } units={ 'K' } color={ 'orange' } /></td>
+        <td><Chart data={ pressures } units={ 'hPa' } color={ 'green' } /></td>
+        <td><Chart data={ humidities } units={ '%' } color={ 'black' } /></td>
       </tr>
     )
   }
