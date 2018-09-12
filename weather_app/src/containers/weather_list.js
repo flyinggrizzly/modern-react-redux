@@ -32,9 +32,9 @@ class WeatherList extends Component {
     return(
       <tr key={ name + key_timestamp }>
         <td>{ name }</td>
-          <Chart data={ temperatures } color={ 'orange' } />
-        <td>
-        </td>
+        <td><Chart data={ temperatures } color={ 'orange' } /></td>
+        <td><Chart data={ pressures } color={ 'green' } /></td>
+        <td><Chart data={ humidities } color={ 'black' } /></td>
       </tr>
     )
   }
