@@ -21,6 +21,7 @@ class WeatherList extends Component {
   }
 
   renderWeather(cityData) {
+    var key_timestamp = Date.now();
     const name = cityData.city.name;
 
     const temperatures = cityData.list.map(datum => datum.main.temp);
@@ -28,7 +29,7 @@ class WeatherList extends Component {
     const humidities = cityData.list.map(datum => datum.main.humidity);
 
     return(
-      <tr key={ name }>
+      <tr key={ name + key_timestamp }>
         <td>{ name }</td>
       </tr>
     )
