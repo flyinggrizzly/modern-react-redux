@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Chart from '../components/chart';
+import MapEmbed from '../components/map_embed';
 
 class WeatherList extends Component {
   render() {
@@ -28,10 +29,12 @@ class WeatherList extends Component {
     const temperatures = cityData.list.map(datum => datum.main.temp);
     const pressures = cityData.list.map(datum => datum.main.pressure);
     const humidities = cityData.list.map(datum => datum.main.humidity);
+    const longitude = cityData.city.coord.lon;
+    const latitude = cityData.city.coord.lat;
 
     return(
       <tr key={ name + key_timestamp }>
-        <td>{ name }</td>
+        <td><MapEmbed longitude={ longitude } latitude={ latitude } /></td>
         <td><Chart data={ temperatures } units={ 'K' } color={ 'orange' } /></td>
         <td><Chart data={ pressures } units={ 'hPa' } color={ 'green' } /></td>
         <td><Chart data={ humidities } units={ '%' } color={ 'black' } /></td>
