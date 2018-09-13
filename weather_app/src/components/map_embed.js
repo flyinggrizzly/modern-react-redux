@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 export default class MapEmbed extends Component {
   render() {
-    return <div ref='map_embed' />;
+    return <div ref='map_embed'></div>;
   }
 
   componentDidMount() {
@@ -12,6 +12,6 @@ export default class MapEmbed extends Component {
         lat: this.props.latitude,
         lng: this.props.longitude
       }
-    })
+    });
   }
 }
