@@ -12,6 +12,11 @@ const createStoreWithMiddleware = applyMiddleware()(createStore);
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
-    <App />
+    <BrowserRouter>
+      <div>
+        <Route path="/"      component={ PostsIndex } />
+        <Route path="/posts" component={ PostsIndex } />
+      </div>
+    </BrowserRouter>
   </Provider>
   , document.querySelector('.container'));
