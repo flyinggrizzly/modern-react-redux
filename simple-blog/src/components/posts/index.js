@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import connect from 'react-redux';
 
-export default class PostsIndex extends Component {
+import { fetchPosts } from '../../actions';
+
+class PostsIndex extends Component {
   render() {
     return(
       <div>
@@ -9,3 +12,8 @@ export default class PostsIndex extends Component {
     );
   }
 }
+
+// Call the fetchPosts action creator directly in the connect() call,
+// instead of using an explicit mapDispatchToProps() function. That is
+// still useful if we need to do some transformations first though.
+export default connect(null, { fetchPosts })(PostsIndex);
