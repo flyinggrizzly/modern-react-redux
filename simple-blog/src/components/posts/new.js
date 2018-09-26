@@ -19,7 +19,7 @@ class PostsNew extends Component {
         <h1>New post</h1>
         <form>
           <Field name="title" label="Title" component={ this.renderTextField } />
-          <Field name="tags"  label="Tags" component={ this.renderTextField } />
+          <Field name="categories"  label="Categories" component={ this.renderTextField } />
           <Field name="content"  label="Post content" component={ this.renderTextField } />
         </form>
       </div>
