@@ -4,10 +4,12 @@ import { Field, reduxForm } from 'redux-form';
 class PostsNew extends Component {
   // Needs to accept an argument that carries event handlers from the Field component in the form.
   // The props from the field object will be 'spread' (the ...field.input call) into the input.
-  renderTitleField(field) {
+  renderTextField(field) {
+    console.table(field);
     return (
-      <div>
-        <input type="text" { ...field.input } />
+      <div className="form-group">
+        <label for={ field.input.name }>{ field.label }</label>
+        <input id={ field.input.name } className="form-control" type="text" { ...field.input } />
       </div>
     );
   }
@@ -17,7 +19,8 @@ class PostsNew extends Component {
       <div>
         <h1>New post</h1>
         <form>
-          <Field name="title" component={ this.renderTitleField } />
+          <Field name="title" label="title" component={ this.renderTextField } />
+          <Field name="tags"  label="tags" component={ this.renderTextField } />
         </form>
       </div>
     );
