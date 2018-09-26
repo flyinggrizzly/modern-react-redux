@@ -27,6 +27,16 @@ class PostsNew extends Component {
   }
 }
 
+function validate(values) {
+  // values object should have a key for each Field in the form => { title: '', categories: '', content: '' }
+
+  // we need to declare an empty errors object, which will be return (possibly no longer empty) by this function
+  const errors = {};
+
+  return errors;
+}
+
 export default reduxForm({
+  validate: validate,
   form: 'PostsNewForm' // unique form identifier so that redux-form doesn't merge state from separate forms
 })(PostsNew);
