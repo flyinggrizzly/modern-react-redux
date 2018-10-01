@@ -14,14 +14,21 @@ class PostsNew extends Component {
     );
   }
 
+  postData(values) {
+    console.table(values);
+  }
+
   render () {
+    const { handleSubmit  } = this.props;
+
     return (
       <div>
         <h1>New post</h1>
-        <form>
+        <form onSubmit={ handleSubmit(this.postData.bind(this)) }>
           <Field name="title" label="Title" component={ this.renderTextField } />
           <Field name="categories"  label="Categories" component={ this.renderTextField } />
           <Field name="content"  label="Post content" component={ this.renderTextField } />
+          <button type="submit" className="btn btn-primary">Submit</button>
         </form>
       </div>
     );
