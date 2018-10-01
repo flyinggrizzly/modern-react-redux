@@ -9,6 +9,7 @@ class PostsNew extends Component {
       <div className="form-group">
         <label for={ field.input.name }>{ field.label }</label>
         <input id={ field.input.name } className="form-control" type="text" { ...field.input } />
+        <div className="field-errors">{ field.meta.error }</div>
       </div>
     );
   }
@@ -32,6 +33,10 @@ function validate(values) {
 
   // we need to declare an empty errors object, which will be return (possibly no longer empty) by this function
   const errors = {};
+
+  if (!values.title) { errors.title = 'Enter a title' }
+  if (!values.categories) { errors.categories = 'Enter some categories' }
+  if (!values.content) { errors.content = 'Enter some content' }
 
   return errors;
 }
