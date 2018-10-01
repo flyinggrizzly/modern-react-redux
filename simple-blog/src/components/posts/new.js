@@ -7,7 +7,7 @@ class PostsNew extends Component {
   renderTextField(field) {
     return (
       <div className="form-group">
-        <label for={ field.input.name }>{ field.label }</label>
+        <label htmlFor={ field.input.name }>{ field.label }</label>
         <input id={ field.input.name } className="form-control" type="text" { ...field.input } />
         <div className="field-errors">{ field.meta.error }</div>
       </div>
