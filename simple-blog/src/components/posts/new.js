@@ -9,7 +9,8 @@ class PostsNew extends Component {
       <div className="form-group">
         <label htmlFor={ field.input.name }>{ field.label }</label>
         <input id={ field.input.name } className="form-control" type="text" { ...field.input } />
-        <div className="field-errors">{ field.meta.error }</div>
+
+        <div className="field-errors">{ field.meta.touched ? field.meta.error : '' }</div>
       </div>
     );
   }
