@@ -5,12 +5,16 @@ class PostsNew extends Component {
   // Needs to accept an argument that carries event handlers from the Field component in the form.
   // The props from the field object will be 'spread' (the ...field.input call) into the input.
   renderTextField(field) {
+    const { meta: { touched, error } } = field;
+
+    const formClass = `form-group ${ touched && error ? 'has-danger' : '' }`;
+
     return (
-      <div className="form-group">
+      <div className={ formClass }>
         <label htmlFor={ field.input.name }>{ field.label }</label>
         <input id={ field.input.name } className="form-control" type="text" { ...field.input } />
 
-        <div className="field-errors">{ field.meta.touched ? field.meta.error : '' }</div>
+        <div className="text-help">{ touched ? error : '' }</div>
       </div>
     );
   }
