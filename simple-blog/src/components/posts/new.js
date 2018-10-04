@@ -23,7 +23,7 @@ class PostsNew extends Component {
   }
 
   postData(values) {
-    this.props.createPost(values);
+    this.props.createPost(values, () => { this.props.history.push('/'); });
   }
 
   render () {
