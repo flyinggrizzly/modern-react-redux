@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+import { createPost } from '../../actions';
 
 class PostsNew extends Component {
   // Needs to accept an argument that carries event handlers from the Field component in the form.
   // The props from the field object will be 'spread' (the ...field.input call) into the input.
   renderTextField(field) {
     const { meta: { touched, error } } = field;
-
     const formClass = `form-group ${ touched && error ? 'has-danger' : '' }`;
 
     return (
@@ -21,7 +23,7 @@ class PostsNew extends Component {
   }
 
   postData(values) {
-    console.table(values);
+    this.props.createPost(values);
   }
 
   render () {
@@ -58,4 +60,12 @@ function validate(values) {
 export default reduxForm({
   validate: validate,
   form: 'PostsNewForm' // unique form identifier so that redux-form doesn't merge state from separate forms
-})(PostsNew);
+})(
+  // connect() returns a valid React component, which make this valid input into the reduxForm() connect-like
+  // helper. We're following the same pattern:
+  // helper(callbacks)(component)
+  // reduxForm() happens to take an options hash in the first set of args, and connect() takes two args:
+  //   1. callback for handling Inbound state changes
+  //   2. callback for handling Outbound state changes
+  connect(null, { createPost })(PostsNew)
+);
