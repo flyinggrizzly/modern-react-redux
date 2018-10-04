@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { Link } from 'react-router-dom';
 
 class PostsNew extends Component {
   // Needs to accept an argument that carries event handlers from the Field component in the form.
@@ -34,6 +35,7 @@ class PostsNew extends Component {
           <Field name="categories"  label="Categories" component={ this.renderTextField } />
           <Field name="content"  label="Post content" component={ this.renderTextField } />
           <button type="submit" className="btn btn-primary">Submit</button>
+          <Link to='/posts' className='btn btn-danger'>Cancel</Link>
         </form>
       </div>
     );
