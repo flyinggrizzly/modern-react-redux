@@ -12,6 +12,8 @@ class PostsShow extends Component {
   render() {
     const { post } = this.props;
 
+    if (!post) { return <div>Loading...</div> }
+
     return(
       <div>
         <h2>{ post.title }</h2>
